@@ -23,7 +23,7 @@
 	   sxhkd
 	   xautolock
 	   feh
-	   i3lock
+	   i3lock-color
 	   stow
 	   git
 	   tldr
@@ -34,5 +34,6 @@
 	   tmux
 	   starship
 	   fzf
+       xdotool
 	];
 }

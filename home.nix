@@ -5,7 +5,6 @@
 
 	home.username = "sol";
 	home.homeDirectory = "/home/sol";
-	
 
 	home.stateVersion = "25.11"; # Please read the comment before changing.
 
