@@ -10,10 +10,10 @@
     };
     
     outputs = {self, nixpkgs, home-manager, ...}: {
-        nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+        nixosConfigurations.nixosvm2 = nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
             modules = [
-                ./configuration.nix
+                ./hosts/nixosvm2/configuration.nix
                 home-manager.nixosModules.home-manager
                 {
                     home-manager = {

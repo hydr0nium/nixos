@@ -8,21 +8,24 @@
     imports =
         [ # Include the results of the hardware scan.
             ./hardware-configuration.nix
-            ./packages.nix
-            ./fonts.nix
+            ../../packages.nix
+            ./../../fonts.nix
         ];
 
 
 # Use the systemd-boot EFI boot loader.
-    boot.loader.systemd-boot.enable = true;
-    boot.loader.efi.canTouchEfiVariables = true;
+    #boot.loader.systemd-boot.enable = true;
+    #boot.loader.efi.canTouchEfiVariables = true;
 
+    boot.loader.systemd-boot.enable = false;
+    boot.loader.grub.enable = true;
+    boot.loader.grub.device = "/dev/sda";	
 # Use flake experimental feature
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
 
 
-# networking.hostName = "nixos"; # Define your hostname.
+networking.hostName = "nixosvm2"; # Define your hostname.
 
 # Configure network connections interactively with nmcli or nmtui.
     networking.networkmanager.enable = true;
