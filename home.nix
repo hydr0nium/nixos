@@ -17,6 +17,7 @@
 	imports = [
         # Dot file configurations
 		./home-manager/tmux.nix
+		./home-manager/bspwm.nix
 		./home-manager/neovim.nix
         ./home-manager/starship.nix
         ./home-manager/zsh.nix

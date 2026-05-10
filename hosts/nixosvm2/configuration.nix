@@ -52,7 +52,6 @@ networking.hostName = "nixosvm2"; # Define your hostname.
         enable = true;
         windowManager.bspwm.enable = true;
         windowManager.bspwm.configFile = "/home/sol/.config/bspwm/bspwmrc";
-
     };
 
 
