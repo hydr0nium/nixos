@@ -25,6 +25,21 @@
                 }
             ];
         };
+	nixosConfigurations.nixosvm1 = nixpkgs.lib.nixosSystem {
+            system = "x86_64-linux";
+            modules = [
+                ./hosts/nixosvm1/configuration.nix
+                home-manager.nixosModules.home-manager
+                {
+                    home-manager = {
+                        useGlobalPkgs = true;
+                        useUserPackages = true;
+                        users.sol = import ./home.nix;
+                        backupFileExtension = "backup";
+                    };
+                }
+            ];
+        };
     };
 
 

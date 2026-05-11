@@ -8,6 +8,12 @@
             "dunst"
             "picom"
             "sxhkd"
+            "keepassxc"
+            "discord"
+            "nextcloud"
+            "rustdesk"
+            "flameshot"
+            "wmname LG3D"
         ];
         settings = {
             border_width = 1;

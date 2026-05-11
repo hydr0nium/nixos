@@ -9,24 +9,24 @@
         [ # Include the results of the hardware scan.
             ./hardware-configuration.nix
             ../../packages.nix
-            ./../../fonts.nix
+            ../../fonts.nix
         ];
 
 
 # Use the systemd-boot EFI boot loader.
-    #boot.loader.systemd-boot.enable = true;
-    #boot.loader.efi.canTouchEfiVariables = true;
+    boot.loader.systemd-boot.enable = true;
+    boot.loader.efi.canTouchEfiVariables = true;
 
-    security.pam.services.i3lock.enable = true;
-    boot.loader.systemd-boot.enable = false;
-    boot.loader.grub.enable = true;
-    boot.loader.grub.device = "/dev/sda";	
 # Use flake experimental feature
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
 
 
-networking.hostName = "nixosvm2"; # Define your hostname.
+
+networking.hostName = "nixosvm1"; # Define your hostname.
+
+# Enable i3lock support in PAM
+security.pam.services.i3lock.enable = true;
 
 # Configure network connections interactively with nmcli or nmtui.
     networking.networkmanager.enable = true;
@@ -52,6 +52,7 @@ networking.hostName = "nixosvm2"; # Define your hostname.
         enable = true;
         windowManager.bspwm.enable = true;
         windowManager.bspwm.configFile = "/home/sol/.config/bspwm/bspwmrc";
+
     };
 
 

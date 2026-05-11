@@ -24,6 +24,7 @@
         ./home-manager/alacritty.nix
         ./home-manager/rofi.nix
         ./home-manager/git.nix
+        ./home-manager/sxhkd.nix
 
         # Darkmode for all apps
         ./home-manager/darkmode.nix
