@@ -1,12 +1,5 @@
 { config, pkgs, ... }:
-let
-tmux-powerkit = pkgs.callPackage (pkgs.fetchFromGitHub {
-        owner = "fabioluciano";
-        repo = "tmux-powerkit";
-        rev = "main";  # or pin to a specific commit
-        sha256 = "sha256-0CYu8bQPHfEdOzdNxeHKX1FZ7uU+/RVQ7qZZ7WSODT4=";   # nix will provide correct hash on first build
-        } + "/default.nix") {};
-in
+
 {
     programs.tmux = {
         enable = true;
@@ -16,11 +9,7 @@ in
         shortcut = "s";
         mouse = true;
         keyMode = "vi";
-        plugins = with pkgs;
-        [
-            tmux-powerkit
 
-        ];
         extraConfig = ''
             set -g base-index 1
             setw -g pane-base-index 1
@@ -42,15 +31,25 @@ in
             set -Fg "status-format[1]" "#{status-format[0]}"
             set -g "status-format[1]" ""
             set -g status 2
-            set -g @powerkit_plugins "datetime"
-            set -g @powerkit_theme "tokyo-night"
-            set -g @powerkit_theme_variant "night"
-            set -g @powerkit_transparent "true"
-            set -g @powerkit_edge_separator_style "normal"
-
+            
             set -g set-clipboard on
             bind-key -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-selection
-            '';
+        '';
+	plugins = with pkgs.tmuxPlugins;
+	[
+		sensible
+		{
+			plugin = catppuccin;
+			extraConfig = ''
+				set -g @catppuccin_flavor 'mocha'
+				set -g @catppuccin_window_status_style 'rounded'
+				set -g status-left ""
+				set -g status-right "#{E:@catppuccin_status_application}"
+				set -agF status-right "#{E:@catppuccin_status_cpu}"
+				set -ag status-right "#{E:@catppuccin_status_session}"
 
+			'';
+		}
+	];
     };
 }

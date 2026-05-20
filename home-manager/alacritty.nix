@@ -7,11 +7,11 @@
 
 		settings = {
 			font.size = 12.0;
-			font.normal.family = "MesloLGLDZ Nerd Font Mono";
+			font.normal.family = "JetBrainsMono Nerd Font";
 			font.normal.style = "Regular";
-			font.bold.family = "MesloLGLDZ Nerd Font Mono";
+			font.bold.family = "JetBrainsMono Nerd Font";
 			font.bold.style = "Bold";
-			font.italic.family = "MesloLGLDZ Nerd Font Mono";
+			font.italic.family = "JetBrainsMono Nerd Font";
 			font.italic.style = "Italic";
 			window.opacity = 0.9;
 			window.padding.x = 10;
